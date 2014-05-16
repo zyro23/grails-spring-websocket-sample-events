@@ -7,6 +7,8 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+grails.tomcat.nio = true
+
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
     //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
@@ -42,12 +44,17 @@ grails.project.dependency.resolution = {
         mavenCentral()
 		
 		// TODO: why did jcenter() not do the trick but explicit mavenRepo did?
-		// jcenter()
 		mavenRepo "http://jcenter.bintray.com"
     }
 
     dependencies {
-		compile "org.grails.plugins:events:1.0.0.M1"
+		// TODO: use when grails-events is ready
+		//compile "org.grails.plugins:events:1.0.0.M1"
+		// TODO: remove when grails-events is ready
+		compile "org.projectreactor:reactor-spring:1.0.1.RELEASE", {
+			excludes "spring-core", "spring-expression", "spring-beans", "spring-context", "spring-context-support"
+		}
+		
     }
 
     plugins {
