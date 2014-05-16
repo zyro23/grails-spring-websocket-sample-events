@@ -40,36 +40,26 @@ grails.project.dependency.resolution = {
         mavenLocal()
         grailsCentral()
         mavenCentral()
-        // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+		
+		// TODO: why did jcenter() not do the trick but explicit mavenRepo did?
+		// jcenter()
+		mavenRepo "http://jcenter.bintray.com"
     }
 
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-        // runtime 'mysql:mysql-connector-java:5.1.29'
-        // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
+		compile "org.grails.plugins:events:1.0.0.M1"
     }
 
     plugins {
-        // plugins for the build system only
         build ":tomcat:7.0.52.1"
 
-        // plugins for the compile step
-        compile ":scaffolding:2.1.0"
-        compile ':cache:1.1.3'
-        compile ":asset-pipeline:1.8.3"
+		compile ":asset-pipeline:1.8.3"
+        compile ":cache:1.1.3"
+		compile ":scaffolding:2.1.0"
+		compile ":spring-websocket:1.0.0.RC2"
 
-        // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.1" // or ":hibernate:3.6.10.13"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.0.2"
-
-        // Uncomment these to enable additional asset-pipeline capabilities
-        //compile ":sass-asset-pipeline:1.7.4"
-        //compile ":less-asset-pipeline:1.7.0"
-        //compile ":coffee-asset-pipeline:1.7.0"
-        //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
 }
