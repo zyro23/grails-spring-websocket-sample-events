@@ -58,15 +58,15 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build ":tomcat:7.0.52.1"
+        build ":tomcat:7.0.53"
 
-		compile ":asset-pipeline:1.8.3"
-        compile ":cache:1.1.3"
+		compile ":asset-pipeline:1.8.7"
+        compile ":cache:1.1.6"
 		compile ":scaffolding:2.1.0"
-		compile ":spring-websocket:1.0.0.RC2"
+		compile ":spring-websocket:1.0.0"
 
-        runtime ":hibernate4:4.3.5.1" // or ":hibernate:3.6.10.13"
+        runtime ":hibernate4:4.3.5.3" // or ":hibernate:3.6.10.13"
         runtime ":database-migration:1.4.0"
-        runtime ":jquery:1.11.0.2"
+        runtime ":jquery:1.11.1"
     }
 }
