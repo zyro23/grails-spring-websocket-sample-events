@@ -1,6 +1,6 @@
 # grails-spring-websocket-sample-events
 
-Sample app using the spring-websocket plugin together with grails-events (at the moment just plain Reactor because I did not find a working grails-events release). Grails 2.4.0.RC2.
+Sample app using the spring-websocket plugin together with grails-events (at the moment just plain Reactor because I did not find a working grails-events release). Grails 2.4.0.
 
 * `component-scan` active on package `sample` (`Config.groovy`)
 * `SchedulingConfig`: enables spring scheduling (`grails-app/conf/sample`)
