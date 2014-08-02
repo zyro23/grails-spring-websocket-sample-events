@@ -10,7 +10,6 @@ class EventHandlerService {
 	static transactional = false
 	
 	SimpMessageSendingOperations brokerMessagingTemplate
-	// TODO: remove when grails-events is ready
 	Reactor reactor
 	
 	@Selector("appEvents")

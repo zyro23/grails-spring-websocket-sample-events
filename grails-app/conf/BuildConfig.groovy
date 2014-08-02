@@ -48,9 +48,6 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-		// TODO: use when grails-events is ready
-		//compile "org.grails.plugins:events:1.0.0.M1"
-		// TODO: remove when grails-events is ready
 		compile "org.projectreactor:reactor-spring:1.0.1.RELEASE", {
 			excludes "spring-core", "spring-expression", "spring-beans", "spring-context", "spring-context-support"
 		}
@@ -58,14 +55,13 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build ":tomcat:7.0.53"
+        build ":tomcat:7.0.54"
 
-		compile ":asset-pipeline:1.8.7"
-        compile ":cache:1.1.6"
-		compile ":scaffolding:2.1.0"
-		compile ":spring-websocket:1.0.0"
+		compile ":asset-pipeline:1.9.6"
+		compile ":scaffolding:2.1.2"
+		compile ":spring-websocket:1.1.0"
 
-        runtime ":hibernate4:4.3.5.3" // or ":hibernate:3.6.10.13"
+        runtime ":hibernate4:4.3.5.5"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
     }
