@@ -12,8 +12,8 @@ class EventGeneratorService {
 	void generate() {
 		println "generating event..."
 		def key = "appEvents"
-		def data = [id: UUID.randomUUID().toString()]
-		reactor.notify key, Event.wrap(data)
+		def message = UUID.randomUUID().toString()
+		reactor.notify key, Event.wrap(message)
 	}
 	
 }

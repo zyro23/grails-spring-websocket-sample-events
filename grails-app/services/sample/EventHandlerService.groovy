@@ -13,8 +13,10 @@ class EventHandlerService {
 	Reactor reactor
 	
 	@Selector("appEvents")
-	void sendPushMessage(Map<String, String> data) {
-		brokerMessagingTemplate.convertAndSend "/topic/pushMessages", data
+	void sendPushMessage(String message) {
+		brokerMessagingTemplate.convertAndSend "/topic/pushMessages", message
+		brokerMessagingTemplate.convertAndSend("/topic/pushMessagesPogo", new Pogo(name: "pogo"))
+		brokerMessagingTemplate.convertAndSend("/topic/pushMessagesPogos", [new Pogo(name: "pogo1"), new Pogo(name: "pogo2")])
 	}
 	
 }

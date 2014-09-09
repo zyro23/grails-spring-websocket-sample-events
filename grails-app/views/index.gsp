@@ -14,8 +14,18 @@
 			
 				client.connect({}, function() {
 	                client.subscribe("/topic/pushMessages", function(message) {
-		                var data = JSON.parse(message.body);
-	                    $("#eventList").append("<li>new event: " + data.id + "</li>");
+		                var message = JSON.parse(message.body);
+	                    $("#eventList").append("<li>new event: " + message + "</li>");
+	                });
+	                client.subscribe("/topic/pushMessagesPogo", function(message) {
+		                var pogo = JSON.parse(message.body);
+		                $("#eventList").append("<li>new pogo: " + pogo.name + "</li>");
+	                });
+	                client.subscribe("/topic/pushMessagesPogos", function(message) {
+		                var pogos = JSON.parse(message.body);
+		                $.each(pogos, function(idx, val) {
+		                	$("#eventList").append("<li>new pogo: " + val.name + "</li>");
+			            });
 	                });
 	            });
 		 	});
