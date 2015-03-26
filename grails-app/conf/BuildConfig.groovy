@@ -48,20 +48,20 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-		compile "org.projectreactor:reactor-spring:1.0.1.RELEASE", {
+		compile "io.projectreactor.spring:reactor-spring-context:2.0.0.RC1", {
 			excludes "spring-core", "spring-expression", "spring-beans", "spring-context", "spring-context-support"
 		}
 		
     }
 
     plugins {
-        build ":tomcat:7.0.55"
+        build ":tomcat:7.0.55.2"
 
-		compile ":asset-pipeline:1.9.6"
+		compile ":asset-pipeline:2.1.5"
 		compile ":scaffolding:2.1.2"
-		compile ":spring-websocket:1.2.0"
+		compile ":spring-websocket:1.3.0"
 
-        runtime ":hibernate4:4.3.5.5"
+        runtime ":hibernate4:4.3.8.1"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
     }

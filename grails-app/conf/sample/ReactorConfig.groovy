@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-import reactor.core.Environment
-import reactor.core.Reactor
-import reactor.core.spec.Reactors
+import reactor.Environment
+import reactor.bus.EventBus
 import reactor.spring.context.config.EnableReactor
+
 
 /**
  * TODO: remove when grails-events is ready
@@ -20,12 +20,8 @@ class ReactorConfig {
 	Environment environment
 	
 	@Bean
-	Reactor reactor() {
-		return Reactors
-			.reactor()
-			.env(environment)
-			.dispatcher(Environment.THREAD_POOL)
-			.get()
+	EventBus eventBus() {
+		return EventBus.create(environment, Environment.THREAD_POOL)
 	}
 	
 }

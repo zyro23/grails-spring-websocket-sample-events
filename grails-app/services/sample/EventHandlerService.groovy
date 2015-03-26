@@ -2,15 +2,17 @@ package sample
 
 import org.springframework.messaging.simp.SimpMessageSendingOperations
 
-import reactor.core.Reactor
-import reactor.spring.annotation.Selector
+import reactor.bus.EventBus
+import reactor.spring.context.annotation.Consumer
+import reactor.spring.context.annotation.Selector
 
+@Consumer
 class EventHandlerService {
 
 	static transactional = false
 	
 	SimpMessageSendingOperations brokerMessagingTemplate
-	Reactor reactor
+	EventBus eventBus
 	
 	@Selector("appEvents")
 	void sendPushMessage(String message) {

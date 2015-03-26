@@ -1,19 +1,20 @@
 package sample
 
-import reactor.core.Reactor
-import reactor.event.Event
+import reactor.bus.Event
+import reactor.bus.EventBus
+
 
 class EventGeneratorService {
 
 	static transactional = false
 	
-	Reactor reactor
+	EventBus eventBus
 	
 	void generate() {
 		println "generating event..."
 		def key = "appEvents"
 		def message = UUID.randomUUID().toString()
-		reactor.notify key, Event.wrap(message)
+		eventBus.notify key, Event.wrap(message)
 	}
 	
 }
